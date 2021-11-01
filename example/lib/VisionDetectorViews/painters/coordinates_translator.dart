@@ -6,6 +6,9 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 double translateX(
     double x, InputImageRotation rotation, Size size, Size absoluteImageSize) {
   switch (rotation) {
+    //  quick hack to make sure (only) landscape mode works
+    case InputImageRotation.Rotation_0deg:
+      return size.width - x * size.width / absoluteImageSize.width;
     case InputImageRotation.Rotation_90deg:
       return x *
           size.width /

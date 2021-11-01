@@ -50,17 +50,17 @@ class Home extends StatelessWidget {
                   ExpansionTile(
                     title: const Text("Vision"),
                     children: [
-                      CustomCard(
+                      /*CustomCard(
                         'Image Label Detector',
                         ImageLabelView(),
                         featureCompleted: true,
-                      ),
+                      ),*/
                       CustomCard(
                         'Face Detector',
                         FaceDetectorView(),
                         featureCompleted: true,
                       ),
-                      CustomCard(
+                      /*CustomCard(
                         'Barcode Scanner',
                         BarcodeScannerView(),
                         featureCompleted: true,
@@ -92,10 +92,10 @@ class Home extends StatelessWidget {
                         'Remote Model Manager',
                         RemoteModelView(),
                         featureCompleted: true,
-                      )
+                      )*/
                     ],
                   ),
-                  SizedBox(
+                  /*SizedBox(
                     height: 20,
                   ),
                   ExpansionTile(
@@ -111,7 +111,7 @@ class Home extends StatelessWidget {
                       CustomCard('Entity Extractor', EntityExtractionView()),
                       CustomCard('Smart Reply', SmartReplyView())
                     ],
-                  ),
+                  ),*/
                 ],
               ),
             ),

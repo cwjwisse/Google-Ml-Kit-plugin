@@ -10,11 +10,13 @@ class FaceDetectorView extends StatefulWidget {
 }
 
 class _FaceDetectorViewState extends State<FaceDetectorView> {
-  FaceDetector faceDetector =
-      GoogleMlKit.vision.faceDetector(FaceDetectorOptions(
+  // No extra features are turned on
+  FaceDetector faceDetector = GoogleMlKit.vision.faceDetector();
+
+      /*GoogleMlKit.vision.faceDetector(FaceDetectorOptions(
     enableContours: true,
     enableClassification: true,
-  ));
+  ));*/
   bool isBusy = false;
   CustomPaint? customPaint;
 
@@ -43,11 +45,18 @@ class _FaceDetectorViewState extends State<FaceDetectorView> {
     print('Found ${faces.length} faces');
     if (inputImage.inputImageData?.size != null &&
         inputImage.inputImageData?.imageRotation != null) {
+
       final painter = FaceDetectorPainter(
           faces,
           inputImage.inputImageData!.size,
           inputImage.inputImageData!.imageRotation);
+
       customPaint = CustomPaint(painter: painter);
+
+      //  print the approximate center of the face iff a face has been detected
+      if(faces.isNotEmpty) {
+        print(faces.first.boundingBox.center);
+      }
     } else {
       customPaint = null;
     }

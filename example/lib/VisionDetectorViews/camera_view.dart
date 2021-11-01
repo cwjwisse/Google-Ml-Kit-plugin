@@ -255,10 +255,13 @@ class _CameraViewState extends State<CameraView> {
     final Size imageSize =
         Size(image.width.toDouble(), image.height.toDouble());
 
-    final camera = cameras[_cameraIndex];
+    /*final camera = cameras[_cameraIndex];
     final imageRotation =
         InputImageRotationMethods.fromRawValue(camera.sensorOrientation) ??
-            InputImageRotation.Rotation_0deg;
+            InputImageRotation.Rotation_0deg;*/
+
+    //  quick fix to make it (only) work in landscape mode
+    final imageRotation = InputImageRotation.Rotation_0deg;
 
     final inputImageFormat =
         InputImageFormatMethods.fromRawValue(image.format.raw) ??
